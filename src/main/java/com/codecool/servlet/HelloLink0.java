@@ -7,36 +7,27 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "anotherServlet", urlPatterns = {"/another"}, loadOnStartup = 2)
-public class AnotherServlet extends HttpServlet {
+@WebServlet(name = "helloLink0", urlPatterns = {"/another/0"}, loadOnStartup = 3)
+public class HelloLink0 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        PrintWriter out = response.getWriter();
 
-        StringBuffer buffer = new StringBuffer();
-        for (int i = 0; i < 10; i++) {
-            buffer.append("<div>");
-            buffer.append("<a href=\"/another/" + i + "\">");
-            buffer.append("Hello " + i + ". link:");
-            buffer.append("</a>");
-            buffer.append("</div>");
-        }
+        PrintWriter out = response.getWriter();
 
         String linkId = request.getParameter("link_id");
 
         out.println(
                 "<html>\n" +
-                        "<head><title>Another page</title></head>\n" +
+                        "<head><title>Hello Link page</title></head>\n" +
                         "<body>\n" +
-                        "<h1>Hello CodeCooler!</h1>" +
+                        "<h1>My first web page in Java!</h1>" +
                         (linkId == null ?
                                 "<h3>No link was pressed</h3>" :
                                 "<h3>Link " + linkId + " was pressed!</h3>") +
                         "<br/>" +
-                        "<div>" + buffer.toString() + "</div>" +
                         "<div>Back home: <a href=\"/servlet\">Back home</a></div>" +
-
+                        "<div>Back to another page: <a href=\"/another\">Back to another</a></div>" +
                         "</body></html>"
         );
     }
