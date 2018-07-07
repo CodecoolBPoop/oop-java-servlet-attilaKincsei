@@ -56,7 +56,14 @@ public class WebShopServlet extends HttpServlet {
         for (Item item : Item.itemList) {
             stringBuilder.append("<tr>\n<td>").append(item.getName())
                     .append("</td>\n<td align = \"right\">").append(item.getPrice())
-                    .append("</td>\n</tr\n>");
+                    .append("</td>\n<td>\n<form id=\"add-form").append(item.getId())
+                    .append("\" action=\"/webshop\" method=\"get\">\n<button form=\"add-form")
+                    .append(item.getId()).append("\" name=\"add\" value=\"")
+                    .append(item.getId()).append("\" type=\"submit\">Add</button>\n</form>\n</td>\n")
+                    .append("</td>\n<td>\n<form id=\"remove-form").append(item.getId())
+                    .append("\" action=\"/webshop\" method=\"get\">\n<button form=\"remove-form")
+                    .append(item.getId()).append("\" name=\"remove\" value=\"")
+                    .append(item.getId()).append("\" type=\"submit\">Remove</button>\n</form>\n</td>\n</tr\n>");
         }
 
 
@@ -68,7 +75,6 @@ public class WebShopServlet extends HttpServlet {
                         "<ul>\n" +
                         "<h2 align = \"center\">" + subTitle + "</h2>\n" +
                         "<br/>" +
-
                         "<div>" +
                         "<table border=\"1\">\n" +
                         "<thead>\n" +
@@ -80,67 +86,7 @@ public class WebShopServlet extends HttpServlet {
                         "</tr>\n" +
                         "</thead>\n" +
                         "\n" +
-                        "<tbody>\n" +
-                        "<tr>\n" +
-                        "<td>" + item0.getName() + "</td>\n" +
-                        "<td align = \"right\">" + item0.getPrice() + "</td>\n" +
-                        "<td>\n" +
-                        "<form id=\"add-form1\" action=\"/webshop\" method=\"get\">\n" +
-                        "<button form=\"add-form1\" name=\"add\" value=\"" + item0.getId() + "\" type=\"submit\">Add</button>\n" +
-                        "</form>\n" +
-                        "</td>\n" +
-                        "<td>\n" +
-                        "<form id=\"remove-form1\" action=\"/webshop\" method=\"get\">\n" +
-                        "<button form=\"remove-form1\" name=\"remove\" value=\"" + item0.getId() + "\" type=\"submit\">Remove</button>\n" +
-                        "</form>\n" +
-                        "</td>\n" +
-                        "</tr>\n" +
-                        "\n" +
-                        "<tr>\n" +
-                        "<td>" + item1.getName() + "</td>\n" +
-                        "<td align = \"right\">" + item1.getPrice() + "</td>\n" +
-                        "<td>\n" +
-                        "<form id=\"add-form2\" action=\"/webshop\" method=\"get\">\n" +
-                        "<button form=\"add-form2\" name=\"add\" value=\"" + item1.getId() + "\" type=\"submit\">Add</button>\n" +
-                        "</form>\n" +
-                        "</td>\n" +
-                        "<td>\n" +
-                        "<form id=\"remove-form2\" action=\"/webshop\" method=\"get\">\n" +
-                        "<button form=\"remove-form2\" name=\"remove\" value=\"" + item1.getId() + "\" type=\"submit\">Remove</button>\n" +
-                        "</form>\n" +
-                        "</td>\n" +
-                        "</tr>\n" +
-                        "\n" +
-                        "<tr>\n" +
-                        "<td>" + item2.getName() + "</td>\n" +
-                        "<td align = \"right\">" + item2.getPrice() + "</td>\n" +
-                        "<td>\n" +
-                        "<form id=\"add-form3\" action=\"/webshop\" method=\"get\">\n" +
-                        "<button form=\"add-form3\" name=\"add\" value=\"" + item2.getId() + "\" type=\"submit\">Add</button>\n" +
-                        "</form>\n" +
-                        "</td>\n" +
-                        "<td>\n" +
-                        "<form id=\"remove-form3\" action=\"/webshop\" method=\"get\">\n" +
-                        "<button form=\"remove-form3\" name=\"remove\" value=\"" + item2.getId() + "\" type=\"submit\">Remove</button>\n" +
-                        "</form>\n" +
-                        "</td>\n" +
-                        "</tr>\n" +
-                        "\n" +
-                        "<tr>\n" +
-                        "<td>" + item3.getName() + "</td>\n" +
-                        "<td align = \"right\">" + item3.getPrice() + "</td>\n" +
-                        "<td>\n" +
-                        "<form id=\"add-form4\" action=\"/webshop\" method=\"get\">\n" +
-                        "<button form=\"add-form1\" name=\"add\" value=\"" + item3.getId() + "\" type=\"submit\">Add</button>\n" +
-                        "</form>\n" +
-                        "</td>\n" +
-                        "<td>\n" +
-                        "<form id=\"remove-form4\" action=\"/webshop\" method=\"get\">\n" +
-                        "<button form=\"remove-form1\" name=\"remove\" value=\"" + item3.getId() + "\" type=\"submit\">Remove</button>\n" +
-                        "</form>\n" +
-                        "</td>\n" +
-                        "</tr>\n" +
-                        "</tbody>\n" +
+                        "<tbody>\n" + stringBuilder.toString() + "</tbody>\n" +
                         "</table>\n" +
                         "</div>" +
                         "<br>" +
