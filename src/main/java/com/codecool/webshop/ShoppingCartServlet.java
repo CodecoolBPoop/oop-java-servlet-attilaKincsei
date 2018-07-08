@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "shoppingCart", urlPatterns = {"/shopping-cart"}, loadOnStartup = 2)
+@WebServlet(name = "shoppingCart", urlPatterns = {"/shopping-cart"}, loadOnStartup = 1)
 public class ShoppingCartServlet extends HttpServlet {
 
     @Override
