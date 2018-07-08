@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.*;
 
 @WebServlet(name = "webshop", urlPatterns = {"/", "/webshop"}, loadOnStartup = 1)
 public class WebShopServlet extends HttpServlet {
@@ -42,7 +43,6 @@ public class WebShopServlet extends HttpServlet {
                     .append(item.getId()).append("\" name=\"remove\" value=\"")
                     .append(item.getId()).append("\" type=\"submit\">Remove</button>\n</form>\n</td>\n</tr\n>");
         }
-
 
         out.println(
                 "<html>\n" +
